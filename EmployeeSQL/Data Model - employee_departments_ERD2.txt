@@ -1,0 +1,38 @@
+
+departments
+-
+dept_no PK varchar(4) 
+dept_name string UNIQUE
+
+
+titles
+-
+title_id PK varchar(5)
+title string UNIQUE
+
+
+employees
+-
+emp_no PK int 
+emp_title_id varchar(5) FK >- titles.title_id 
+birth_date date 
+first_name string
+last_name string
+sex string
+hire_date date
+
+
+salaries
+-
+emp_no PK int FK >- employees.emp_no
+salary int
+
+dept_emp
+-
+emp_no PK int FK >- employees.emp_no
+dept_no int FK >- departments.dept_no
+
+dept_manager
+-
+dept_no PK int FK >- departments.dept_no
+emp_no PK int FK >- employees.emp_no
